@@ -87,7 +87,10 @@ def add_patient(first_name, last_name, last_visit_date, follow_up_freq, priority
     '''
 
     if not file_no:
-        file_no = max(int(patient[0]) for patient in follow_up_schedule) + 1
+        if not follow_up_schedule:
+            file_no = 1
+        else:
+            file_no = max(int(patient[0]) for patient in follow_up_schedule) + 1
 
     if ' m' not in follow_up_freq:
         follow_up_freq = follow_up_freq + ' m'
@@ -119,7 +122,7 @@ def add_patient_interface():
     '''
 
     duplicate = False #to store the value of the check_duplicate function
-    input_list.clear()
+  
     clear_screen()
 
     what_next = ''
@@ -239,13 +242,14 @@ def refresh():
 def main_screen():
 
     main_menu = input("\033[96mPlease select from the options below:\033[0m\n\n\
-\033[93m1:\033[0m View the follow up schedule\n\
-\033[93m2:\033[0m Add patients to the follow up schedule \n\
-\033[93m3:\033[0m Add a group of test patients to the follow up schedule \n\
-\033[93m4:\033[0m Edit/delete patients from the follow up schedule\n\
-\033[93m5:\033[0m Sort the follow up schedule\n\
+\033[93m 1:\033[0m View the follow up schedule\n\
+\033[93m 2:\033[0m Add patients to the follow up schedule \n\
+\033[93m 3:\033[0m Add a group of test patients to the follow up schedule \n\
+\033[93m 4:\033[0m Edit/delete patients from the follow up schedule\n\
+\033[93m 5:\033[0m Sort the follow up schedule\n\
 \033[93m-1:\033[0m Anywhere in the program to return \n\
-\033[93m0:\033[0m Quit the program: \n")
+\033[93m 0:\033[0m Quit the program: \n\n\
+> ")
 
     if main_menu == '1':
         clear_screen()
@@ -359,9 +363,10 @@ def edit_delete_interface():
         print('')
 
         mode_selection = input(f'\033[96mPlease select from the options below: \033[0m\n\n\
-\033[93mdel:\033[0m to enter delete mode\n\
-\033[93medit:\033[0m to enter edit mode:\n')
-        print('')
+\033[93mdel :\033[0m to enter delete mode\n\
+\033[93medit:\033[0m to enter edit mode:\n\
+\033[93m    :\033[0m hit enter to search again:\n\n\
+> ')
 
         while mode_selection != '-1':
 
@@ -388,6 +393,15 @@ def edit_delete_interface():
 
                 print('')
                 edit_patient(edit_selection.strip())
+
+            elif mode_selection == '':
+
+
+                clear_screen()
+                print_follow_up_schedule()
+                print('')
+                edit_delete_interface()
+
 
             else:
                 mode_selection = input(
@@ -481,7 +495,7 @@ def edit_patient(file_no):
                                 input_item = input(
                                     f'\033[91mPlease enter the a whole number for the {header} or hit enter to skip: \033[0m')
 
-                        input_list.append(input_item.title())
+                        input_list.append(input_item)
                     elif header in ['First Name', 'Last Name']:
                         input_item = input(
                             f'\033[96m{header}: \033[0m{patient_file[headers_dic[header]]}, \033[96menter a new value below or hit enter to skip: \033[0m')
@@ -501,7 +515,9 @@ def edit_patient(file_no):
                         input_item = input(
                             f'\033[96m{header}: \033[0m{patient_file[headers_dic[header]]}, \033[96mPlease enter a new value below in <dd-mm-yyyy> format or hit enter to skip: \033[0m')
 
-                        while not all(x.isdigit() for x in input_item.split('-')) or input_item.count('-') != 2:
+                        while not all(x.isdigit() for x in input_item.split('-')) or\
+                             input_item.count('-') != 2 or\
+                                 len(input_item) != 10:
                             if input_item == '':
                                 input_item = patient_file[headers_dic[header]]
 
@@ -580,13 +596,14 @@ def sort_interface():
 
     sort_method = input('\033[96mPlease select from the options below:\033[0m\n\n\
 \033[93m1:\033[0m sort by file number\n\
-\033[93m2:\033[0m  sort by first name\n\
-\033[93m3:\033[0m  sort by last name\n\
-\033[93m4:\033[0m  sort by follow up frequency\n\
-\033[93m5:\033[0m  sort by follow up date\n\
-\033[93m6:\033[0m  sort by priority\n\
-*type des after selection for descending order (e.g, 1 des)\n\
--1: retrun to main menu\n')
+\033[93m2:\033[0m sort by first name\n\
+\033[93m3:\033[0m sort by last name\n\
+\033[93m4:\033[0m sort by follow up frequency\n\
+\033[93m5:\033[0m sort by follow up date\n\
+\033[93m6:\033[0m sort by priority\n\
+\033[93mdes:\033[0m after number selection for descending order (e.g, 1 des)\n\
+\033[93m-1:\033[0m retrun to main menu\n\n\
+> ')
 
     try:
         sort_method_clean = sort_method.replace('des', '').strip()
