@@ -2,6 +2,7 @@ import datetime
 import csv
 import os
 
+#Check if changes are merged#
 ##### GLOBAL VARIABLES #####
 
 follow_up_schedule = []  # A list to store schedule records
