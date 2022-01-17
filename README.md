@@ -36,19 +36,40 @@ The following instructions will guide you on how to run this python script.
 
 Python 3 is needed to run this project.
 
-Follow this link to install python on your computer [python](https://www.python.org).
+If you don't have python installed on your computer, follow this link to install python on your computer [python](https://www.python.org).
 
-Download the project
+You can check if you have python 3 installed by running the following command on the terminal (MacOS) or command prompt (Windows)
 
+```
+python --version
+```
+Example output:
+
+```
+Python 3.9.9
+```
 
 ### Running the script
 
-A step by step series of examples that tell you how to get a development env running.
+- Download the project folder [Follow-Up-Schedule](https://github.com/drmohammadatieh/Follow-Up-Schedule/archive/refs/heads/master.zip)
 
-Say what the step will be
+- Open the terminal on MacOS or the command prompt on Windows 7/10.
+- Go to the directory that contains the project files. Example:
+  
+  In MacOS:
+  
+  ```
+  cd  Downloads/Follow-Up-Schedule-master/
+  ```
+  In Windows:
+
+   ```
+  cd  Downloads\Follow-Up-Schedule-master\
+  ```
+- Run the script by typing the following command
 
 ```
-Give the example
+python main.py
 ```
 
 And repeat
