@@ -629,7 +629,7 @@ follow up due date
     # Starts by searching a record
     search_string = input(
         "\033[96mSearch by first and/or last name partial/complete or\
-enter -1 to go to main menu: \033[0m")
+ enter -1 to go to main menu: \033[0m")
 
     if search_string == '-1':
         clear_screen()
