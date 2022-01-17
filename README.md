@@ -72,7 +72,9 @@ Python 3.9.9
 python main.py
 ```
 
-And repeat
+Main screen will look like this:
+
+<img src="/images/main_screen.png">
 
 ```
 until finished
