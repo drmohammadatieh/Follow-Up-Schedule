@@ -608,6 +608,7 @@ def check_out_and_follow(file_no):
 
         if what_next != "-1":
             clear_screen()
+            print_follow_up_schedule()
             check_out_and_follow_interface()
 
         else:
@@ -622,12 +623,13 @@ def check_out_and_follow(file_no):
 
 def check_out_and_follow_interface():
     '''Interface for checking out patients and scheduling next\
-        follow up due date 
+follow up due date 
     '''
 
     # Starts by searching a record
     search_string = input(
-        "\033[96mSearch by first and/or last name partial/complete or enter -1 to go to main menu: \033[0m")
+        "\033[96mSearch by first and/or last name partial/complete or\
+enter -1 to go to main menu: \033[0m")
 
     if search_string == '-1':
         clear_screen()
@@ -643,18 +645,22 @@ def check_out_and_follow_interface():
         print('')
 
         selection = input(
-                    '\033[96mEnter the file number of the  patient you want to checkout and return to the follow up schedule: \033[0m')
+                    '\033[96mEnter the file number of the  patient you want to\
+ checkout and return to the follow up schedule: \033[0m')
            
         while (not selection.strip().isdigit()
                 or selection not in search_result):
             print('')
             selection = input(
-                '\033[91mPlease enter one of the file numbers above or enter -1 to go to main screen\033[0m: ')
+                '\033[91mPlease enter one of the file numbers above or\
+enter -1 to go to main screen\033[0m: ')
+
             if selection == "-1":
                 clear_screen()
                 main_screen()
 
         print('')
+        clear_screen()
         check_out_and_follow(selection)
        
         if selection == '':
@@ -663,19 +669,16 @@ def check_out_and_follow_interface():
             print('')
             check_out_and_follow_interface()
 
-            # If there is no match found:
+    # If there is no match found:
     else:
         print('')
         what_next = input(
-            '\033[91mNo match was found hit enter to try again or enter -1 to go to main menu: \033[0m')
+            '\033[91mNo match was found hit enter to try again or\
+enter -1 to go to main menu: \033[0m')
         print('')
         if what_next == '-1':
             clear_screen()
             main_screen()
-
-        # else:
-        #     check_out_and_follow()
-
 
 def export_to_cv():
     '''Exports the follow_up_schedule to a csv file'''
