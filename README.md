@@ -1,54 +1,47 @@
-<p align="center">
+<!-- <p align="center">
   <a href="" rel="noopener">
  <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+</p> -->
+
+<h3 align="center">Follow Up Schedule</h3>
+
+<p align="center"> 
+
+This application is designed for managing patient follow-up appointments.
+
 </p>
 
-<h3 align="center">Project Title</h3>
+## Table of Contents
 
-<div align="center">
+- [Table of Contents](#table-of-contents)
+- [About <a name = "about"></a>](#about-)
+- [Getting Started <a name = "getting_started"></a>](#getting-started-)
+  - [Prerequisites](#prerequisites)
+  - [Running the script](#running-the-script)
+- [Running the tests <a name = "tests"></a>](#running-the-tests-)
+  - [Break down into end to end tests](#break-down-into-end-to-end-tests)
+- [Usage <a name="usage"></a>](#usage-)
+- [Built Using <a name = "built_using"></a>](#built-using-)
+- [Author <a name = "authors"></a>](#author-)
 
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+## About <a name = "about"></a>
 
-</div>
+This application will help dentists put their patients on a regular follow-up schedule according to each patient’s need. For example, some patients may need regular six months follow-ups to be scheduled, others may need shorter or longer follow-ups. On the other hand, some patients may prefer to call and schedule as needed, so won’t be placed on a regular follow-up schedule. Once a patient is placed on the follow-up schedule, the application will calculate the next follow-up date according to the follow-up frequency chosen and the last visit date. Each time the patient attends their follow-up visit, they can be checked out and returned to the follow-up schedule with the next follow-up date being calculated automatically.
 
----
+## Getting Started <a name = "getting_started"></a>
 
-<p align="center"> Few lines describing your project.
-    <br> 
-</p>
-
-## 📝 Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
-
-## 🧐 About <a name = "about"></a>
-
-Write about 1-2 paragraphs describing the purpose of your project.
-
-## 🏁 Getting Started <a name = "getting_started"></a>
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+The following instructions will guide you on how to run this python script.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+Python 3 is needed to run this project.
 
-```
-Give examples
-```
+Follow this link to install python on your computer [python](https://www.python.org).
 
-### Installing
+Download the project
+
+
+### Running the script
 
 A step by step series of examples that tell you how to get a development env running.
 
@@ -66,7 +59,7 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo.
 
-## 🔧 Running the tests <a name = "tests"></a>
+## Running the tests <a name = "tests"></a>
 
 Explain how to run the automated tests for this system.
 
@@ -78,37 +71,16 @@ Explain what these tests test and why
 Give an example
 ```
 
-### And coding style tests
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
+## Usage <a name="usage"></a>
 
 Add notes about how to use the system.
 
-## 🚀 Deployment <a name = "deployment"></a>
+## Built Using <a name = "built_using"></a>
 
-Add additional notes about how to deploy this on a live system.
+- [Python 3.9](https://www.python.org) - Interpreted programming language.
 
-## ⛏️ Built Using <a name = "built_using"></a>
+## Author <a name = "authors"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [@drmohammadatieh](https://github.com/kylelobo) - Idea & Implementation.
 
-## ✍️ Authors <a name = "authors"></a>
-
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
