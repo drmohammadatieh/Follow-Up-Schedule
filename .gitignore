@@ -1,3 +1,4 @@
 .vscode
 /Playground.ipynb
 .gitignore
+.DS_Store
