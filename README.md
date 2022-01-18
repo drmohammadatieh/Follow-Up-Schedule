@@ -13,8 +13,6 @@ This application is designed for managing patient follow-up appointments.
 - [Getting Started <a name = "getting_started"></a>](#getting-started-)
   - [Prerequisites](#prerequisites)
   - [Running the script](#running-the-script)
-- [Running the tests <a name = "tests"></a>](#running-the-tests-)
-  - [Break down into end to end tests](#break-down-into-end-to-end-tests)
 - [Usage <a name="usage"></a>](#usage-)
 - [Built Using <a name = "built_using"></a>](#built-using-)
 - [Author <a name = "authors"></a>](#author-)
@@ -63,36 +61,20 @@ Python 3.9.9
   ```
 - Run the script by typing the following command
 
-```
-python main.py
-```
+  ```
+  python main.py
+  ```
 
 Main screen will look like this:
 
 <img src="/images/main_screen.png">
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
-## Running the tests <a name = "tests"></a>
-
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 
 ## Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+To navigate through the application, you just need to type in the selection number, then hit enter key.
+
+Detailed 
 
 ## Built Using <a name = "built_using"></a>
 
