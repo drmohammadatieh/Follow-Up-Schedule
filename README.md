@@ -72,7 +72,7 @@ Main screen will look like this:
 <!-- ![main screen](images/main_screen.png)
 {: height ="36px" width ="36px"} -->
 
-<img src="images/main_screen.png" width="600"/>
+<img src="images/main_screen.png" width="1000"/>
 
 
 
