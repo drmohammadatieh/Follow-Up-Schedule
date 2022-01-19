@@ -2,6 +2,8 @@ import datetime
 import csv
 import os
 
+print(os.getcwd())
+
 ##### GLOBAL VARIABLES #####
 
 follow_up_schedule = []  # A list to store schedule records
