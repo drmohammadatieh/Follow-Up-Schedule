@@ -710,7 +710,7 @@ def main_screen():
 \033[93m 1:\033[0m View the follow up schedule\n\
 \033[93m 2:\033[0m Add patients \n\
 \033[93m 3:\033[0m Add test patients\n\
-\033[93m 4:\033[0m Edit/delete patients\n\
+\033[93m 4:\033[0m Search/Edit/delete patients\n\
 \033[93m 5:\033[0m Sort the follow up schedule\n\
 \033[93m 6:\033[0m Check out patient and return to the follow up schedule\n\
 \033[93m-1:\033[0m Anywhere to return to the main menu \n\
