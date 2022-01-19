@@ -275,6 +275,10 @@ search can be done by first name and/or last name partial or complete.
 def edit_delete_interface():
     '''Interface for editing and deleting patients.'''
 
+    clear_screen()
+    print_follow_up_schedule()
+    print('')
+
     # Starts by searching a record
     search_string = input(
         "\033[96mSearch by first and/or last name partial/complete or enter -1 to go to main menu: \033[0m")
@@ -426,15 +430,15 @@ def edit_patient(file_no):
                 print('')
                 input_list.clear()
                 break
+            
 
-    if not duplicate and file_no != '-1':
+    if not duplicate or duplicate and file_no ==patient_file[0]:
         print('')
         add_confirmation = input(
             '\033[96mDo you want to save the new edits (Y/N)?: \033[0m')
         print('')
 
         if add_confirmation.lower() == 'y':
-
             follow_up_schedule.remove(patient_file)
             patient = add_patient(input_list[0], input_list[1], input_list[2],
                             input_list[3], input_list[4], patient_file[0])
@@ -453,10 +457,15 @@ def edit_patient(file_no):
             else:
                 clear_screen()
                 main_screen()
-
+        
         else:
             clear_screen()
             edit_delete_interface()
+
+    else:
+        clear_screen()
+        main_screen()
+
 
 
     edit_delete_interface()
@@ -757,9 +766,6 @@ def main_screen():
             main_screen()
 
     elif main_menu == '4':
-        clear_screen()
-        print_follow_up_schedule()
-        print('')
         edit_delete_interface()
         export_to_cv()
         clear_screen()
