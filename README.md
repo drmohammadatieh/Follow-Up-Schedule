@@ -15,7 +15,7 @@ This application is designed for managing patient follow-up appointments.
 - [Getting Started <a name = "getting_started"></a>](#getting-started-)
   - [Prerequisites](#prerequisites)
   - [Running the script](#running-the-script)
-- [Usage <a name="usage"></a>](#usage-)
+- [Application instructions <a name="usage"></a>](#application-instructions-)
 - [Built Using <a name = "built_using"></a>](#built-using-)
 - [Author <a name = "authors"></a>](#author-)
 
@@ -69,14 +69,16 @@ Python 3.9.9
 
 Main screen will look like this:
 
-<img src="/images/main_screen.png">
+<!-- ![main screen](images/main_screen.png)
+{: height ="36px" width ="36px"} -->
+
+<img src="images/main_screen.png" width="600"/>
 
 
-## Usage <a name="usage"></a>
 
-To navigate through the application, you just need to type in the selection number, then hit enter key.
+## Application instructions <a name="usage"></a>
 
-Detailed 
+This program has a user-friendly CLI interface. To navigate through the application, you just need to type in the selection number, then hit enter key. The main screen is shown above. You have different options
 
 ## Built Using <a name = "built_using"></a>
 

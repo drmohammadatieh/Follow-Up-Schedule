@@ -519,18 +519,23 @@ def sort_follow_up_schedule(index=5, order='a', priority = 'a'):
             if order == 'a':
                 if priority == 'a': # next_follow_up_date-->ascending, priority-->ascending
                     follow_up_schedule.sort(key=lambda x: (datetime.datetime.strptime(
-                        x[5], "%d-%m-%Y"), int(x[6])))
+                        x[5], "%d-%m-%Y")if x[5] !='As Needed' else datetime.datetime.strptime('1-1-4000',
+                        '%d-%m-%Y'), int(x[6])) )
                 else: # next_follow_up_date-->ascending, priority-->descending
                     follow_up_schedule.sort(key=lambda x: (datetime.datetime.strptime(
-                        x[5], "%d-%m-%Y"), -int(x[6])))
+                        x[5], "%d-%m-%Y") if x[5] !='As Needed' else datetime.datetime.strptime('1-1-2000',
+                        '%d-%m-%Y'), -int(x[6])) )
     
             else:
                 if priority == 'a': # next_follow_up_date-->descending, priority-->ascending
                     follow_up_schedule.sort(key=lambda x: (datetime.datetime.strptime(
-                        x[5], "%d-%m-%Y"), -int(x[6])),reverse=True)
+                        x[5], "%d-%m-%Y") if x[5] !='As Needed' else datetime.datetime.strptime('1-1-4000',
+
+                        '%d-%m-%Y'), -int(x[6])),reverse=True)
                 else:  # next_follow_up_date-->descending, priority-->descending
                     follow_up_schedule.sort(key=lambda x: (datetime.datetime.strptime(
-                        x[5], "%d-%m-%Y"), int(x[6])),reverse=True)
+                        x[5], "%d-%m-%Y")if x[5] !='As Needed' else  datetime.datetime.strptime('1-1-2000',
+                        '%d-%m-%Y'), int(x[6])),reverse=True)
 
     elif index == 5:
         follow_up_schedule.sort(key=lambda x: int(
@@ -703,13 +708,13 @@ def main_screen():
 
     main_menu = input("\033[96mPlease enter one of the options below:\033[0m\n\n\
 \033[93m 1:\033[0m View the follow up schedule\n\
-\033[93m 2:\033[0m Add patients to the follow up schedule \n\
-\033[93m 3:\033[0m Add a group of test patients to the follow up schedule \n\
-\033[93m 4:\033[0m Edit/delete patients from the follow up schedule\n\
+\033[93m 2:\033[0m Add patients \n\
+\033[93m 3:\033[0m Add test patients\n\
+\033[93m 4:\033[0m Edit/delete patients\n\
 \033[93m 5:\033[0m Sort the follow up schedule\n\
 \033[93m 6:\033[0m Check out patient and return to the follow up schedule\n\
-\033[93m-1:\033[0m Anywhere in the program to return to main menu \n\
-\033[93m 0:\033[0m Quit the program\n\n\
+\033[93m-1:\033[0m Anywhere to return to the main menu \n\
+\033[93m 0:\033[0m Quit\n\n\
 > ")
 
     if main_menu == '1':
