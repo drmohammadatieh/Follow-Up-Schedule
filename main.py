@@ -180,11 +180,11 @@ def add_patient_interface():
 
                     if duplicate:
                         print('')
-                        print(
-                            f'\033[91mThis patient is already on the follow up schedule with a file no: {file_no}\033[0m')
-                        print('')
-                        input_list.clear()
-                        break
+                        what_next = input(f'\033[91mThis patient is already on the follow up schedule with a file no: {file_no}\033[0m')
+                        
+                        if what_next == '':
+                            input_list.clear()
+                            break
 
         if not duplicate:
             print('')
