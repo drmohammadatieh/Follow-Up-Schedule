@@ -9,21 +9,20 @@ This application is designed for managing patient follow-up appointments.
 <!-- This is a test -->
 
 ## Table of Contents
-
 - [Table of Contents](#table-of-contents)
 - [About](#about)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Running the script](#running-the-script)
 - [Application instructions](#application-instructions)
-  - [Option 1: View the follow up schedule.](#option-1-view-the-follow-up-schedule)
-  - [Option 2: Add patients.](#option-2-add-patients)
-  - [Option 3: Add test patients.](#option-3-add-test-patients)
-  - [Option 4: Search/Edit/delete patients.](#option-4-searcheditdelete-patients)
-  - [Option 5: Sort.](#option-5-sort)
-  - [Option 6: Check out and return to the follow up schedule.](#option-6-check-out-and-return-to-the-follow-up-schedule)
-  - [Option 7: Return to the main menu anywhere in the program.](#option-7-return-to-the-main-menu-anywhere-in-the-program)
-  - [Option 8: Quit the program from the main menu.](#option-8-quit-the-program-from-the-main-menu)
+  - [Option 1: View the follow up schedule](#option-1-view-the-follow-up-schedule)
+  - [Option 2: Add patients](#option-2-add-patients)
+  - [Option 3: Add test patients](#option-3-add-test-patients)
+  - [Option 4: Search/Edit/delete patients](#option-4-searcheditdelete-patients)
+  - [Option 5: Sort](#option-5-sort)
+  - [Option 6: Check out and return to the follow up schedule](#option-6-check-out-and-return-to-the-follow-up-schedule)
+  - [Option 7: Return to the main menu anywhere in the program](#option-7-return-to-the-main-menu-anywhere-in-the-program)
+  - [Option 8: Quit the program from the main menu](#option-8-quit-the-program-from-the-main-menu)
 - [Built Using](#built-using)
 - [Author](#author)
 - [License MIT](#license-mit)
@@ -87,12 +86,12 @@ Main screen will look like this:
 
 This program has a user-friendly CLI interface as seen above. To navigate through the application, you just need to type in the selection number, then hit enter key. The main screen is shown above. You have different options to select from.
 
-### Option 1: View the follow up schedule.
+### Option 1: View the follow up schedule
   
   The menu options will reappear again below the schedule to help you navigate to the other application sections.
   <img src="images/view.png" width="1000">
 
-### Option 2: Add patients.
+### Option 2: Add patients
   
   Each field will appear one at a time to allow you to type in the information. The first letter of each part of the name will be capitalized automatically when the information is saved, so you don't have to worry about that. You have to hit enter after each entry is complete. 
   <img src="images/add_patient_firstname.png" width="1000">
@@ -101,12 +100,12 @@ This program has a user-friendly CLI interface as seen above. To navigate throug
   A a verification will be received after the information is saved successfully.
   <img src="images/add_patient_confirmed.png" width="1000">
   
-### Option 3: Add test patients.
+### Option 3: Add test patients
   
   This option is designed for trying the application by the user and testing purposes. It adds six fake patients to the followup schedule.
   <img src="images/add_test_patients_success.png" width="1000">
 
-### Option 4: Search/Edit/delete patients.
+### Option 4: Search/Edit/delete patients
 
   This option will allow you to search for a patient using first and/or last name using partial or complete keywords.
   <img src="images/search.png" width="1000"> 
@@ -125,7 +124,7 @@ This program has a user-friendly CLI interface as seen above. To navigate throug
   Then you can select one or more file numbers separated by commas for the records you want to delete:
   <img src="images/delete_select.png" width="1000">
 
-### Option 5: Sort.
+### Option 5: Sort
   This option allow you to sort the follow up schedule according to different keys (columns). You can use the letter "a" or "d" after the column number to specify the sort order (ascending/descending):
   <img src="images/sort.png" width="1000">
   The most useful example is sorting by the next follow up visit date with/without priority as shown here:
@@ -133,17 +132,17 @@ This program has a user-friendly CLI interface as seen above. To navigate throug
   Here is the result:
   <img src="images/sorted.png" width="1000">
 
-### Option 6: Check out and return to the follow up schedule.
+### Option 6: Check out and return to the follow up schedule
   After the patient attends his appointment, it is very helpful to check the patient out and return to the follow up schedule. This can be done by searching the patient, then typing the file number and hitting enter.
   <img src="images/checkout_and_follow.png" width="1000">
   Here it shows how the next follow up date is calculated and reflected on the follow up schedule automatically:
   <img src="images/checkedout_and_followed.png" width="1000">
 
-### Option 7: Return to the main menu anywhere in the program.
+### Option 7: Return to the main menu anywhere in the program
   To return to the main screen, you just need to type -1 followed by enter anywhere in the application.
   <img src="images/main_screen.png" width="1000">
 
-### Option 8: Quit the program from the main menu.
+### Option 8: Quit the program from the main menu
   To quit the application completely, you just need to return to the main menu then type 0 followed by enter key.
   <img src="images/main_screen.png" width="1000">
    
