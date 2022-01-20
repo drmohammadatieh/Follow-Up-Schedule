@@ -791,11 +791,13 @@ def main_screen():
         check_out_and_follow_interface()
 
     else:
-        go_to_main_screen = input('\033[92mPlease enter one of the mentioned options only\033[0m: \n> ')
-        if go_to_main_screen == '':
+        go_to_main_screen = input('\033[92mPlease enter one of the mentioned options only. Hit enter to try again, otherwise the application will quit\033[0m ')
+
+        if go_to_main_screen == "":
+        
             clear_screen()
             main_screen()
-            
+                
        
 main_screen()
 
