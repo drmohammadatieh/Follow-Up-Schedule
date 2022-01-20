@@ -431,6 +431,7 @@ def edit_patient(file_no):
 hit enter to start over:\033[0m')
                 
                 if what_next == '':
+                   print('') 
                    edit_patient(file_no)
               
     # If editing the same file number then this is not a duplicate:            
