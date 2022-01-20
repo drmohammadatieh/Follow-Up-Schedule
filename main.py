@@ -1,3 +1,4 @@
+from dataclasses import field
 import datetime
 import csv
 import os
@@ -158,7 +159,8 @@ def add_patient_interface():
                             input_item = input(
                         f'{header} in <dd-mm-yyyy> format or hit enter for today: ') or\
                                 datetime.datetime.strftime(today, '%d-%m-%Y')
-                            datetime.datetime.strptime(input_item,'%d-%m-%Y')
+                            input_item = datetime.datetime.strptime(input_item,'%d-%m-%Y').date()
+                            input_item = datetime.datetime.strftime(input_item,'%d-%m-%Y')
                             print('\033[96mLast Visit Date is ' +
                             input_item + '\033[0m')
                             break
@@ -369,13 +371,14 @@ def edit_patient(file_no):
                        'Last Visit Date': 3, 'Follow Up Freq': 4, 'Priority': 6}
 
         for header in headers_list:
+            input_item =''
             if header not in ['Next_Follow_Up_Date','File_No']:
                 header = header.replace('_', ' ')
                 if header in ["Follow Up Freq", "Priority"]:
                     input_item = input(
                         f'{header}: {patient_file[headers_dic[header]]}\n\033[96mPlease enter a new value below or hit enter to skip: \033[0m')
-                    while not input_item.isdigit():
-                        if input_item == '':
+                    while not input_item.isdigit() and input_item != '-1':
+                        if input_item == '':  #if editing this field is skipped the original value will be retained
                             input_item = patient_file[headers_dic[header]]
                             break
                         else:
@@ -388,7 +391,7 @@ def edit_patient(file_no):
                         f'{header}: {patient_file[headers_dic[header]]}\n\033[96mPlease enter a new value below or hit enter to skip: \033[0m')
 
                     while not input_item.isalpha() and input_item != '-1':
-                        if input_item == '':
+                        if input_item == '':  #if editing this field is skipped the original value will be retained
                             input_item = patient_file[headers_dic[header]]
                             break
                         else:
@@ -402,11 +405,10 @@ def edit_patient(file_no):
                     while input_item != '-1':
                         try:
                             input_item = input(
-                        f'{header}:{patient_file[headers_dic[header]]}\n\033[96mPlease enter a new date in <dd-mm-yyyy> format or hit to skip: \033[m0') or\
-                                patient_file[headers_dic[header]]
-                            datetime.datetime.strptime(input_item,'%d-%m-%Y')
-                            print('Last Visit Date is ' +
-                            input_item)
+                        f'{header}:{patient_file[headers_dic[header]]}\n\033[96mPlease enter a new date in <dd-mm-yyyy> format or hit enter to skip: \033[0m') or\
+                                patient_file[headers_dic[header]]  #if editing this field is skipped the original value will be retained
+                            input_item = datetime.datetime.strptime(input_item,'%d-%m-%Y').date()
+                            input_item = datetime.datetime.strftime(input_item,'%d-%m-%Y')
                             break
                         except: 
                             continue
@@ -419,20 +421,20 @@ def edit_patient(file_no):
 
             # Make sure the edited patient file doesn't result in a duplicate
             if header == 'Last Name':
-
                 duplicate = check_duplicate(input_list)[0]
-                file_no = check_duplicate(input_list)[1]
-
+                file_no_of_duplicate = check_duplicate(input_list)[1]
+           
             # If there is a duplicate with different file_no:
-            if duplicate and file_no != patient_file[0]:
-                print(
-                    f'\033[91mThis patient is already on the follow up schedule with a file no: {file_no}\033[0m')
+            if duplicate and file_no_of_duplicate != patient_file[0]:
                 print('')
-                input_list.clear()
-                break
-            
-
-    if not duplicate or duplicate and file_no ==patient_file[0]:
+                what_next = input(f'\033[91mThis patient is already on the follow up schedule with a file no {file_no_of_duplicate}\n\
+hit enter to start over:\033[0m')
+                
+                if what_next == '':
+                   edit_patient(file_no)
+              
+    # If editing the same file number then this is not a duplicate:            
+    if file_no_of_duplicate == None:
         print('')
         add_confirmation = input(
             '\033[96mDo you want to save the new edits (Y/N)?: \033[0m')
