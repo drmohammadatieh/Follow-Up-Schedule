@@ -56,14 +56,14 @@ clear_screen()
 def print_follow_up_schedule(follow_up_schedule=follow_up_schedule):
     '''Prints the follow_up_schedule list in a table format.'''
 
-    print('')  # New line
+    print('') # A new line
 
     # Print the follow up schedule headers
     padding = ' ' * 5
     for header in headers_list:
         print(f'\033[38;5;15;48;5;20m{header}{padding}\033[0m', end='')
 
-    print('')  # New line
+    print('') # A new line
 
     # Print dashed line (---) seprating the headers from the rows
     print('-' * (sum([len(header)
@@ -78,7 +78,7 @@ def print_follow_up_schedule(follow_up_schedule=follow_up_schedule):
             print(
                 f'\033[38;5;15;48;5;12m{follow_up_schedule[j][i]}{i_padding}\033[0m', end='')
 
-        print('')  # New line
+        print('') # A new line
 
 
 def add_patient(first_name, last_name,
@@ -184,7 +184,7 @@ def add_patient_interface():
                     file_no = check_duplicate(input_list)[1]
 
                     if duplicate:
-                        print('')
+                        print('') # A new line
                         what_next = input(f'\033[91mThis patient is already on the follow up schedule with a file no: {file_no}\033[0m')
                         
                         if what_next == '':
@@ -192,17 +192,17 @@ def add_patient_interface():
                             break
 
         if not duplicate:
-            print('')
+            print('') # A new line
             add_confirmation = input(
                 '\033[96mSave the information above (Y/N)?: \033[0m')
-            print('')
+            print('') # A new line
 
             if add_confirmation.lower() == 'y':
                 add_patient(input_list[0], input_list[1],
                             input_list[2], input_list[3], input_list[4])
                 export_to_cv()
                 print('\033[92mThe record was saved successfully\033[0m')
-                print('')
+                print('') # A new line
                 input_item = input(
                     '\033[96mHit enter to add another patient or enter -1 to go to main menu: \033[0m')
 
@@ -283,7 +283,7 @@ def edit_delete_interface():
 
     clear_screen()
     print_follow_up_schedule()
-    print('')
+    print('') # A new line
 
     # Starts by searching a record
     search_string = input(
@@ -300,7 +300,7 @@ def edit_delete_interface():
             patient for patient in follow_up_schedule if patient[0] in search_result]
         clear_screen()
         print_follow_up_schedule(filtered_follow_up_schedule)
-        print('')
+        print('') # A new line
 
         mode_selection = input(f'\033[96mPlease enter one of the options below: \033[0m\n\n\
 \033[93mdel :\033[0m to enter delete mode\n\
@@ -319,27 +319,27 @@ def edit_delete_interface():
 
             #If edit mode is selected:
             elif mode_selection == "edit":
-                print('')
+                print('') # A new line
                 edit_selection = input(
                     '\033[96mPlease enter the number of the file you want to edit: \033[0m')
                 if edit_selection == "-1":
                     break
                 while (not edit_selection.strip().isdigit()
                        or edit_selection not in search_result):
-                    print('')
+                    print('') # A new line
                     edit_selection = input(
                         '\033[91mPlease enter one of the file numbers above or enter -1 to go to main screen\033[0m: ')
                     if edit_selection == "-1":
                         clear_screen()
                         main_screen()
 
-                print('')
+                print('') # A new line
                 edit_patient(edit_selection.strip())
 
             elif mode_selection == '':
                 clear_screen()
                 print_follow_up_schedule()
-                print('')
+                print('') # A new line
                 edit_delete_interface()
 
             else:
@@ -351,10 +351,10 @@ def edit_delete_interface():
 
     # If there is no match found:
     else:
-        print('')
+        print('') # A new line
         what_next = input(
             '\033[91mNo match was found hit enter to try again or enter -1 to go to main menu: \033[0m')
-        print('')
+        print('') # A new line
         if what_next == '-1':
             clear_screen()
             main_screen()
@@ -433,20 +433,20 @@ def edit_patient(file_no):
            
             # If there is a duplicate with different file_no:
             if duplicate and file_no_of_duplicate != patient_file[0]:
-                print('')
+                print('') # A new line
                 what_next = input(f'\033[91mThis patient is already on the follow up schedule with a file no {file_no_of_duplicate}\n\
 hit enter to start over:\033[0m')
                 
                 if what_next == '':
-                   print('') 
+                   print('') # A new line
                    edit_patient(file_no)
               
     # If editing the same file number then this is not a duplicate:            
     if file_no_of_duplicate == None:
-        print('')
+        print('') # A new line
         add_confirmation = input(
             '\033[96mDo you want to save the new edits (Y/N)?: \033[0m')
-        print('')
+        print('') # A new line
 
         if add_confirmation.lower() == 'y':
             follow_up_schedule.remove(patient_file)
@@ -455,10 +455,10 @@ hit enter to start over:\033[0m')
             export_to_cv()
             print_follow_up_schedule(
                 [follow_up_schedule[int(follow_up_schedule.index(patient))]])
-            print('')
+            print('') # A new line
             what_next = input(
                 '\033[96mHit enter to start a new search or enter -1 to go to main menu: \033[0m')
-            print('')
+            print('') # A new line
 
             if what_next != "-1":
                 clear_screen()
@@ -510,7 +510,7 @@ def delete_patient(search_result, delete_selection, follow_up_schedule, filtered
                 clear_screen()
                 print_follow_up_schedule(filtered_follow_up_schedule)
                 print('\033[32mRecord/s were deleted successfully\033[0m')
-                print('')
+                print('') # A new line
                 export_to_cv()
 
                 # Check if the user is willing to delete more records:
@@ -575,7 +575,7 @@ def sort_follow_up_schedule(index=5, order='a', priority = 'a'):
         follow_up_schedule.sort(key=lambda x: x[index-1], reverse = True if order == 'd' else False)
 
     print_follow_up_schedule()
-    print('')
+    print('') # A new line
     sort_interface()
 
 
@@ -602,13 +602,13 @@ def sort_interface():
             elif int(sort_method_clean) not in list(range(1, 8)):
                 clear_screen()
                 print(f'\033[91m\'{sort_method}\' is not a valid option\033[0m')
-                print('')
+                print('') # A new line
                 sort_interface()
 
         except:
             clear_screen()
             print(f'\033[91m\'{sort_method}\' is not a valid option\033[0m')
-            print('')
+            print('') # A new line
             sort_interface()
 
         clear_screen()
@@ -642,15 +642,16 @@ and retrun to the follow_up_schedule with the next_follow_up_date
         export_to_cv()
         print_follow_up_schedule(
             [follow_up_schedule[int(follow_up_schedule.index(patient))]])
-        print('')
+        print('') # A new line
         
         what_next = input(
             '\033[96mHit enter to start a new search or enter -1 to go to main menu: \033[0m')
-        print('')
+        print('') # A new line
 
         if what_next != "-1":
             clear_screen()
             print_follow_up_schedule()
+            print('') # A new line
             check_out_and_follow_interface()
 
         else:
@@ -684,7 +685,7 @@ follow up due date
             patient for patient in follow_up_schedule if patient[0] in search_result]
         clear_screen()
         print_follow_up_schedule(filtered_follow_up_schedule)
-        print('')
+        print('') # A new line
 
         selection = input(
                     '\033[96mEnter the file number of the  patient you want to\
@@ -692,7 +693,7 @@ follow up due date
            
         while (not selection.strip().isdigit()
                 or selection not in search_result):
-            print('')
+            print('') # A new line
             selection = input(
                 '\033[91mPlease enter one of the file numbers above or\
 enter -1 to go to main screen\033[0m: ')
@@ -701,26 +702,31 @@ enter -1 to go to main screen\033[0m: ')
                 clear_screen()
                 main_screen()
 
-        print('')
+        print('') # A new line
         clear_screen()
         check_out_and_follow(selection)
        
         if selection == '':
             clear_screen()
             print_follow_up_schedule()
-            print('')
+            print('') # A new line
             check_out_and_follow_interface()
 
     # If there is no match found:
     else:
-        print('')
+        print('') # A new line
         what_next = input(
             '\033[91mNo match was found hit enter to try again or\
-enter -1 to go to main menu: \033[0m')
-        print('')
+ enter -1 to go to main menu: \033[0m')
+        print('') # A new line
         if what_next == '-1':
             clear_screen()
             main_screen()
+        else:
+            clear_screen()
+            print_follow_up_schedule() 
+            print('') # A new line
+            check_out_and_follow_interface()
 
 def export_to_cv():
     '''Exports the follow_up_schedule to a csv file'''
@@ -751,7 +757,7 @@ def main_screen():
     if main_menu == '1':
         clear_screen()
         print_follow_up_schedule()
-        print('')
+        print('') # A new line
         main_screen()
        
     elif main_menu == '2':
@@ -765,14 +771,14 @@ def main_screen():
         clear_screen()
         add_test_patients()
         export_to_cv() 
-        print('')
+        print('') # A new line
         go_to_main_screen = input(
             '\033[96mHit enter to view schedule or enter -1 to go to main menu\033[0m: ')
 
         if go_to_main_screen == '':
             clear_screen()
             print_follow_up_schedule()
-            print('')
+            print('') # A new line
             go_to_main_screen = input(
                 '\033[96mHit enter to return to main screen\033[0m: ')
             if go_to_main_screen.isascii():
@@ -791,7 +797,7 @@ def main_screen():
     elif main_menu == '5':
         clear_screen()
         print_follow_up_schedule()
-        print('')
+        print('') # A new line
         sort_interface()
 
     elif main_menu in ['0', '-1']:
@@ -802,7 +808,7 @@ def main_screen():
     elif main_menu == '6':
         clear_screen()
         print_follow_up_schedule()
-        print('')
+        print('') # A new line
         check_out_and_follow_interface()
 
     else:
