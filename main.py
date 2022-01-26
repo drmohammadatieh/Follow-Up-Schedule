@@ -11,12 +11,12 @@ follow_up_schedule = []  # A list to store schedule records
 # For testing and trying the application features
 
 test_patients = [
-    ['John', 'Campbell', '01-12-2020', '12', '2'],
-    ['Merry', 'Barnett', '01-12-2020', '3', '1'],
-    ['Jordan', 'Frost', '01-12-2020', '3', '2'],
-    ['Linda', 'Wright', '01-12-2020', '24', '2'],
-    ['Angela', 'Rogers', '01-12-2020', '0', '1'],
-    ['Sarah', 'Mcnaught', '01-12-2020', '0', '1'],
+    ['John', 'Campbell', '01-12-2021', '12', '2'],
+    ['Merry', 'Barnett', '01-12-2021', '3', '1'],
+    ['Jordan', 'Frost', '01-12-2021', '3', '2'],
+    ['Linda', 'Wright', '01-12-2019', '24', '2'],
+    ['Angela', 'Rogers', '01-12-2018', '0', '1'],
+    ['Sarah', 'Mcnaught', '01-12-2018', '0', '1'],
 ]
 # Headers for the follow up schedule table 
 headers_list = [
@@ -753,11 +753,6 @@ def main_screen():
         print_follow_up_schedule()
         print('')
         main_screen()
-
-        go_to_main_screen = input('Hit any key to view main menu options')
-        if go_to_main_screen.isascii():
-            clear_screen()
-            main_screen()
        
     elif main_menu == '2':
         clear_screen()
@@ -811,12 +806,17 @@ def main_screen():
         check_out_and_follow_interface()
 
     else:
-        go_to_main_screen = input('\033[92mPlease enter one of the mentioned options only. Hit enter to try again, otherwise the application will quit\033[0m ')
+        
+        go_to_main_screen = input('\033[96mPlease enter one of the mentioned options only. Hit enter to try again, otherwise the application will quit\033[0m ')
 
         if go_to_main_screen == "":
         
             clear_screen()
+            main_menu = ''
             main_screen()
+
+        else:
+            quit()
                 
        
 main_screen()
