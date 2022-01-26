@@ -1,4 +1,3 @@
-from dataclasses import field
 import datetime
 import csv
 import os
@@ -14,7 +13,7 @@ follow_up_schedule = []  # A list to store schedule records
 test_patients = [
     ['John', 'Campbell', '01-12-2020', '12', '2'],
     ['Merry', 'Barnett', '01-12-2020', '3', '1'],
-    ['Jordan', 'Frost', '01-12-2020', '6', '2'],
+    ['Jordan', 'Frost', '01-12-2020', '3', '2'],
     ['Linda', 'Wright', '01-12-2020', '24', '2'],
     ['Angela', 'Rogers', '01-12-2020', '0', '1'],
     ['Sarah', 'Mcnaught', '01-12-2020', '0', '1'],
@@ -554,7 +553,7 @@ def sort_follow_up_schedule(index=5, order='a', priority = 'a'):
                         '%d-%m-%Y'), int(x[6])) )
                 else: # next_follow_up_date-->ascending, priority-->descending
                     follow_up_schedule.sort(key=lambda x: (datetime.datetime.strptime(
-                        x[5], "%d-%m-%Y") if x[5] !='As Needed' else datetime.datetime.strptime('1-1-2000',
+                        x[5], "%d-%m-%Y") if x[5] !='As Needed' else datetime.datetime.strptime('1-1-4000',
                         '%d-%m-%Y'), -int(x[6])) )
     
             else:
@@ -565,7 +564,7 @@ def sort_follow_up_schedule(index=5, order='a', priority = 'a'):
                         '%d-%m-%Y'), -int(x[6])),reverse=True)
                 else:  # next_follow_up_date-->descending, priority-->descending
                     follow_up_schedule.sort(key=lambda x: (datetime.datetime.strptime(
-                        x[5], "%d-%m-%Y")if x[5] !='As Needed' else  datetime.datetime.strptime('1-1-2000',
+                        x[5], "%d-%m-%Y")if x[5] !='As Needed' else  datetime.datetime.strptime('1-1-4000',
                         '%d-%m-%Y'), int(x[6])),reverse=True)
 
     elif index == 5:
