@@ -147,7 +147,7 @@ This program has a user-friendly CLI interface as seen above. To navigate throug
 
 ## Author
 
-- [@drmohammadatieh](https://github.com/kylelobo) - Idea & Implementation.
+- [@drmohammadatieh](https://github.com/drmohammadatieh) - Idea & Implementation.
   
 ## License [MIT](https://github.com/drmohammadatieh/Follow-Up-Schedule/blob/master/LICENSE)
 
